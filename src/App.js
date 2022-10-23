@@ -4,6 +4,7 @@ import LoginPage from './pages/LoginPage';
 // import RegisterPage from './pages/RegisterPage';
 import HomePage from './pages/HomePage';
 import ListMovie from './pages/ListMovie';
+import Footer from './components/footer/Footer';
 import {Route, BrowserRouter,Routes} from "react-router-dom";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="login" element={<LoginPage />} />
           <Route path="list" element={<ListMovie />} />
         </Routes>
+        <Footer />
     </BrowserRouter>
       </div>
     

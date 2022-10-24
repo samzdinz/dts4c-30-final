@@ -13,11 +13,42 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 // import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import { signingOut } from "../utils/firebase/signout";
 
 const pages = ['home', 'login', 'list'];
 const settings = ['Logout'];
 
 function ResponsiveAppBar() {
+  // protected route
+  const navigate = useNavigate();
+
+  const signOut = async () => {
+    // localStorage.removeItem("access_token");
+    const loggedOut = await signingOut();
+    if (!loggedOut.message) {
+      navigate("/signup");
+    }
+  };
+
+  const [isLogged, setisLogged] = React.useState(false);
+
+  React.useEffect(() => {
+    checkStorage();
+    return () => {};
+  }, [isLogged]);
+  function checkStorage() {
+    if (localStorage.getItem("user")) {
+      setisLogged(true);
+    } else {
+      setisLogged(false);
+    }
+  }
+  const logout = () => {
+    localStorage.removeItem("user");
+    setisLogged(false);
+  };
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -131,7 +162,7 @@ function ResponsiveAppBar() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+            {/* <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
@@ -153,11 +184,20 @@ function ResponsiveAppBar() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={setting} onClick={signOut}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
-            </Menu>
+            </Menu> */}
+            {/* <Button variant="contained" style={{background: 'red', color: 'white' }} onClick={signOut}>SIGN OUT</Button> */}
+
+            {!isLogged ? (
+          <Link color="inherit" to="/signin">Login</Link>
+        ) : (
+          <Link onClick={logout} color="inherit">
+            Logout
+          </Link>
+        )}
           </Box>
         </Toolbar>
       </Container>

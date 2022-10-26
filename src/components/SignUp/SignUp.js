@@ -22,8 +22,8 @@ export const SignUp = () => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
+  const [password, setPassword] = useState(""); 
+  
   const signUp = async () => {
     console.log(email, password);
     const response = await signingUp(email, password);

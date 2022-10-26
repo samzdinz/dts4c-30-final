@@ -1,12 +1,12 @@
 import React from 'react'
 import ResponsiveAppBar from '../navigation-bar/Navbar'
-import Footer from "../Footer/Footer"
+import Footer from '../Footer/Footer'
 
 const DetailPage= () => {
     return (
         <div>
         <ResponsiveAppBar />
-            Halo
+            ini Halaman Detail
             <Footer />
         </div>
     )

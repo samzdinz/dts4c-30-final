@@ -155,7 +155,6 @@ const LandingPage = () => {
       </Grid>
     </Box>
     <Footer/>
-
     </div>
   );
 };

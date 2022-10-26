@@ -26,7 +26,7 @@ function ResponsiveAppBar() {
     // localStorage.removeItem("access_token");
     const loggedOut = await signingOut();
     if (!loggedOut.message) {
-      navigate("/");
+      navigate("/signin");
     }
   };
 

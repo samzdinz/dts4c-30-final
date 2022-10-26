@@ -1,8 +1,9 @@
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Grid from '@mui/material/Grid';
+import Link from '@mui/material/Link';
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import AppBar from "@mui/material/AppBar";
@@ -13,11 +14,11 @@ import Footer from "../Footer/Footer";
 
 const LandingPage = () => {
   // protected route
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const signIn = async () => {
-    navigate("/signin");
-  };
+  // const signIn = async () => {
+  //   navigate("/signin");
+  // };
 
   return (
     <div>
@@ -63,13 +64,14 @@ const LandingPage = () => {
             </Typography>
 
             <Box sx={{ flexGrow: 0, display: { xs: "flex", align: "right" } }}>
+              <Link to='signin' style={{ textDecoration: 'none' }}>
               <Button
                 variant="contained"
                 style={{ background: "red", color: "white" }}
-                onClick={signIn}
               >
                 SIGN IN
               </Button>
+                </Link>
             </Box>
           </Toolbar>
         </Container>
@@ -89,9 +91,11 @@ const LandingPage = () => {
           </Typography>
         </CardContent>
         <CardActions style={{ justifyContent: "center" }}>
-          <Button onClick={signIn} size="large" style={{ background: "red", color: "white" }}>
+          <Link href='/signin' style={{ textDecoration: 'none' }}>
+          <Button size="large" style={{ background: "red", color: "white" }}>
             GET STARTED
           </Button>
+          </Link>
         </CardActions>
       </Card>
 

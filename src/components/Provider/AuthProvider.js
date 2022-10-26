@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }) => {
         }
       } else {
         if (pathname === "/") {
-          window.location.replace("/signup");
+          window.location.replace("/");
         }
       }
     });

@@ -1,28 +1,24 @@
 import "./App.css";
-import ResponsiveAppBar from "./components/navigation-bar/Navbar";
-import LoginPage from "./pages/LoginPage";
-import HomePage from "./pages/HomePage";
-import ListMovie from "./pages/ListMovie";
-import Footer from "./components/footer/Footer";
-import { Route, Routes } from "react-router-dom";
-import { Home } from "./components/Home/Home";
+import LandingPage from "./components/LandingPage/LandingPage";
+import ListMovie from "./components/ListMovie/ListMovie";
+import DetailPage from "./components/DetailPage/DetailPage";
+import AboutPage from "./components/AboutPage/AboutPage";
+import { Route, Routes  } from "react-router-dom";
 import { SignIn } from "./components/SignIn/SignIn";
 import { SignUp } from "./components/SignUp/SignUp";
-// import { listener } from "./components/utils/firebase/listener";
+
 
 function App() {
   return (
     <div className="App">
-      <ResponsiveAppBar />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="login" element={<LoginPage />} />
-        <Route path="list" element={<ListMovie />} />
-        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/home" element={<LandingPage />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/" element={<ListMovie />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/detail" element={<DetailPage />} />
       </Routes>
-      <Footer />
     </div>
   );
 }

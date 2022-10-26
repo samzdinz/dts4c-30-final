@@ -1,19 +1,51 @@
 import React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
-import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import Link from "@mui/material/Link";
+
+function Copyright() {
+  return (
+    <Typography variant="body2" color="white">
+      {"Copyright © "}
+      <Link color="inherit" href="/">
+        DTSMOVIES
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
+}
 
 const Footer = () => {
   return (
-    <div>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "10vh",
+      }}
+    >
       <CssBaseline />
-      <Container maxWidth="xl" style={{ background: 'black', color: 'white', marginTop: '20px', padding: '10px' }}>
-        <Typography variant="p" component="p">
-          Copyright@DTS-REA-C 2022
-        </Typography>
-        
-      </Container>
-    </div>
+      <Box
+        style={{ background: "black" }}
+        component="footer"
+        sx={{
+          py: 3,
+          px: 2,
+          mt: "auto",
+          backgroundColor: (theme) =>
+            theme.palette.mode === "light"
+              ? theme.palette.grey[200]
+              : theme.palette.grey[800],
+        }}
+      >
+        <Container maxWidth="sm">
+          <Copyright />
+        </Container>
+      </Box>
+    </Box>
   );
 };
 
